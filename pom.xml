@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.young.boot</groupId>
+    <artifactId>young-boot</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>young-boot-starters</module>
+        <module>young-boot-common</module>
+        <module>young-boot-dependencies</module>
+    </modules>
+
+    <properties>
+        <lombok.version>1.18.30</lombok.version>
+        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+        <spring-boot-maven-plugin.version>2.4.5</spring-boot-maven-plugin.version>
+        <young.boot.revision>1.0.0</young.boot.revision>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <flatten-maven-plugin.version>1.2.2</flatten-maven-plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+
+    </properties>
+
+
+    <dependencyManagement>
+    </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>young-boot-maven</id>
+            <name>artifactory-releases</name>
+            <url>http://110.42.41.27:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>young-boot-maven</id>
+            <name>artifactory-snapshots</name>
+            <url>http://110.42.41.27:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>

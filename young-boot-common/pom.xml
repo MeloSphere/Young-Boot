@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.young.boot</groupId>
+        <artifactId>young-boot</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>young-boot-common</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <young.boot.revision>1.0.0</young.boot.revision>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.young.boot</groupId>
+                <artifactId>young-boot-starters</artifactId>
+                <version>${young.boot.revision}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <!--Lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <distributionManagement>
+        <repository>
+            <id>young-boot-maven</id>
+            <name>artifactory-releases</name>
+            <url>http://110.42.41.27:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>young-boot-maven</id>
+            <name>artifactory-snapshots</name>
+            <url>http://110.42.41.27:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
