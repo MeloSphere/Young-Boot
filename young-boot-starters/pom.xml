@@ -15,6 +15,7 @@
         <module>young-boot-web-starter</module>
         <module>young-boot-openapi-starter</module>
         <module>young-boot-json-starter</module>
+        <module>young-boot-mp-starter</module>
     </modules>
 
     <properties>
