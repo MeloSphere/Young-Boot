@@ -1,13 +1,17 @@
 package cn.young.boot.common;
 
+import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 /**
  * @author Mole. meiko_ooo@163.com
  * @since 2025/1/21 20:35
  */
 @Setter
-public class ResponseData<T> {
+@Getter
+public class ResponseData<T> implements Serializable {
 
     private Integer code;
 
