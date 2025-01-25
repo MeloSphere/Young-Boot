@@ -16,6 +16,7 @@
         <module>young-boot-openapi-starter</module>
         <module>young-boot-json-starter</module>
         <module>young-boot-mp-starter</module>
+        <module>young-boot-security-starter</module>
     </modules>
 
     <properties>
