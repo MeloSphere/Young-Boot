@@ -38,7 +38,11 @@
     </dependencyManagement>
 
     <dependencies>
-
+        <dependency>
+            <groupId>cn.young.boot</groupId>
+            <artifactId>young-boot-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
 </project>
