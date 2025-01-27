@@ -17,6 +17,8 @@
         <module>young-boot-json-starter</module>
         <module>young-boot-mp-starter</module>
         <module>young-boot-security-starter</module>
+        <module>young-boot-flink-starter</module>
+        <module>young-boot-elk-starter</module>
     </modules>
 
     <properties>

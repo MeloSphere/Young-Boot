@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.young.boot.search.config.YoungElasticsearchAutoConfiguration, \
+  cn.young.boot.search.properties.YoungElasticsearchProperties
