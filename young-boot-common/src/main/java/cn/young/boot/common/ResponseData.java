@@ -64,5 +64,9 @@ public class ResponseData<T> implements Serializable {
         return response;
     }
 
+    public Boolean isSuccess() {
+        return this.success;
+    }
+
 
 }
