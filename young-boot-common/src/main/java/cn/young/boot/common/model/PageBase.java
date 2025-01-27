@@ -1,4 +1,4 @@
-package cn.young.boot.mp.base;
+package cn.young.boot.common.model;
 
 import lombok.Data;
 

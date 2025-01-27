@@ -1,11 +1,10 @@
 package cn.young.boot.mp.base;
 
+import cn.young.boot.common.model.PageBase;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
