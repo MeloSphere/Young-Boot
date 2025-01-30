@@ -19,6 +19,7 @@
         <module>young-boot-security-starter</module>
         <module>young-boot-flink-starter</module>
         <module>young-boot-elk-starter</module>
+        <module>young-boot-test-starter</module>
     </modules>
 
     <properties>
