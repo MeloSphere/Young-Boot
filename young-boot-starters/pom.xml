@@ -20,6 +20,8 @@
         <module>young-boot-flink-starter</module>
         <module>young-boot-elk-starter</module>
         <module>young-boot-test-starter</module>
+        <module>young-boot-satoken-starter</module>
+        <module>young-boot-redis-starter</module>
     </modules>
 
     <properties>

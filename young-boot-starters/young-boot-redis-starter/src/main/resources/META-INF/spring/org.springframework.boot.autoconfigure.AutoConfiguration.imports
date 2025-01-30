@@ -1,0 +1,2 @@
+cn.yong.boot.redis.config.RedisClientAutoConfiguration
+cn.yong.boot.redis.utils.RedisUtil
