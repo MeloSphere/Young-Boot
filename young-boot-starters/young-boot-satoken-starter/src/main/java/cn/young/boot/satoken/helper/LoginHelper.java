@@ -5,6 +5,7 @@ import cn.dev33.satoken.context.model.SaStorage;
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaLoginModel;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.young.boot.satoken.model.LoginUser;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -34,7 +35,7 @@ public class LoginHelper {
      *
      * @param loginUser 登录用户信息
      */
-    public static void login(Map<String, Object> loginUser) {
+    public static void login(LoginUser loginUser) {
         loginByDevice(loginUser);
     }
 
@@ -44,21 +45,21 @@ public class LoginHelper {
      *
      * @param loginUser 登录用户信息
      */
-    public static void loginByDevice(Map<String, Object> loginUser) {
+    public static void loginByDevice(LoginUser loginUser) {
         SaStorage storage = SaHolder.getStorage();
         storage.set(LOGIN_USER_KEY, loginUser);
-        storage.set(USER_KEY, loginUser.get("userId"));
+        storage.set(USER_KEY, loginUser.getUserId());
         SaLoginModel model = new SaLoginModel();
-        String loginId = loginUser.get("userId") + "_" + UUID.randomUUID().toString().replace("-", "");
-        StpUtil.login(loginId, model.setExtra(USER_KEY, loginUser.get("userId")));
+        String loginId = loginUser.getUserId() + "_" + UUID.randomUUID().toString().replace("-", "");
+        StpUtil.login(loginId, model.setExtra(USER_KEY, loginUser.getUserId()));
         StpUtil.getTokenSession().set(LOGIN_USER_KEY, loginUser);
     }
 
     /**
      * 获取用户(多级缓存)
      */
-    public static Map<String, Object> getLoginUser() {
-        Map<String, Object> loginUser = (Map<String, Object>) SaHolder.getStorage().get(LOGIN_USER_KEY);
+    public static LoginUser getLoginUser() {
+        LoginUser loginUser = (LoginUser) SaHolder.getStorage().get(LOGIN_USER_KEY);
         if (loginUser != null) {
             return loginUser;
         }
@@ -66,9 +67,21 @@ public class LoginHelper {
         if (null == session) {
             return null;
         }
-        loginUser = (Map<String, Object>) session.get(LOGIN_USER_KEY);
+        loginUser = (LoginUser) session.get(LOGIN_USER_KEY);
         SaHolder.getStorage().set(LOGIN_USER_KEY, loginUser);
         return loginUser;
+    }
+
+    /**
+     * 获取用户基于token
+     */
+    public static LoginUser getLoginUser(String token) {
+        SaSession session = StpUtil.getTokenSessionByToken(token);
+        if (null == session) {
+            return null;
+        }
+        return (LoginUser) session.get(LOGIN_USER_KEY);
+
     }
 
 
