@@ -1,6 +1,7 @@
 package cn.young.boot.satoken.config;
 
 import cn.dev33.satoken.dao.SaTokenDao;
+import cn.dev33.satoken.jwt.StpLogicJwtForSimple;
 import cn.dev33.satoken.stp.StpInterface;
 import cn.dev33.satoken.stp.StpLogic;
 import cn.young.boot.satoken.impl.YoungSaPermissionImpl;
@@ -30,8 +31,8 @@ public class SaTokenConfig {
         return new YoungSaPermissionImpl();
     }
 
-    /*@Bean
+    @Bean
     public StpLogic getStpLogicJwt() {
         return new StpLogicJwtForSimple();
-    }*/
+    }
 }

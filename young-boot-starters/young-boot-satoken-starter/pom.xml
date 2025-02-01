@@ -25,6 +25,13 @@
             <version>1.39.0</version>
         </dependency>
 
+        <!-- Sa-Token 整合 jwt -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-jwt</artifactId>
+            <version>1.39.0</version>
+        </dependency>
+
         <dependency>
             <groupId>cn.young.boot</groupId>
             <artifactId>young-boot-redis-starter</artifactId>
