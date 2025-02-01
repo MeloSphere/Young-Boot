@@ -22,6 +22,7 @@
         <module>young-boot-test-starter</module>
         <module>young-boot-satoken-starter</module>
         <module>young-boot-redis-starter</module>
+        <module>young-boot-s3-sarter</module>
     </modules>
 
     <properties>

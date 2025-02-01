@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.young.boot.s3.config.S3AutoConfiguration,\
+  cn.young.boot.s3.channel.MinioServiceInstance
