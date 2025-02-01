@@ -5,7 +5,6 @@ import cn.dev33.satoken.jwt.StpLogicJwtForSimple;
 import cn.dev33.satoken.stp.StpInterface;
 import cn.dev33.satoken.stp.StpLogic;
 import cn.young.boot.satoken.impl.YoungSaPermissionImpl;
-import cn.young.boot.satoken.impl.YoungSaTokenDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,17 +14,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class SaTokenConfig {
-    /**
-     * 自定义dao层存储
-     */
-    @Bean
-    public SaTokenDao saTokenDao() {
-        return new YoungSaTokenDao();
-    }
 
     /**
      * 权限接口实现(使用bean注入方便用户替换)
      */
+
     @Bean
     public StpInterface stpInterface() {
         return new YoungSaPermissionImpl();

@@ -1,9 +1,13 @@
 package cn.young.boot.satoken.config;
 
+import cn.dev33.satoken.SaManager;
+import cn.dev33.satoken.filter.SaServletFilter;
 import cn.dev33.satoken.interceptor.SaInterceptor;
-import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.same.SaSameUtil;
+import cn.dev33.satoken.util.SaResult;
 import cn.young.boot.satoken.factory.YmlPropertySourceFactory;
 import cn.young.boot.satoken.interceptor.TokenInterceptor;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -37,6 +41,20 @@ public class SaTokenBootConfigure implements WebMvcConfigurer {
     }
 
     // 注册 Sa-Token 全局过滤器
+// 注册 Sa-Token 全局过滤器
+    @Bean
+    public SaServletFilter getSaServletFilter() {
+        return new SaServletFilter()
+                .addInclude("/**")
+                .addExclude("/favicon.ico")
+                .setAuth(obj -> {
+                    if (SaManager.getConfig().getCheckSameToken()) {
+                        SaSameUtil.checkCurrentRequestToken();
+                    }
+                    /* SaSameUtil.checkCurrentRequestToken();*/
 
+                })
+                .setError(e -> SaResult.error(e.getMessage()));
+    }
 
 }
