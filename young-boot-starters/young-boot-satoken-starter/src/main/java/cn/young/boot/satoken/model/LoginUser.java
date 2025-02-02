@@ -14,4 +14,6 @@ public class LoginUser implements Serializable {
     private Long userId;
 
     private String nickName;
+
+    private String avaterUrl;
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * @author Mole. meiko_ooo@163.com
@@ -40,7 +41,28 @@ public class MinioServiceInstance implements S3ServiceInstance {
             return s3ConfigProperties.getEndpoint() + "/" + bucketName + "/" + obj;
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException(e);
+            throw new RuntimeException("文件上传失败");
         }
+    }
+
+    @Override
+    public String putInputStream(String bucketName, InputStream inputStream, String path) {
+        try {
+            PutObjectArgs args = PutObjectArgs
+                    .builder()
+                    //设置桶名
+                    .bucket(bucketName)
+                    //设置对象名
+                    .object(path)
+                    .stream(inputStream, inputStream.available(), -1)
+                    .build();
+            minioClient.putObject(args);
+            return s3ConfigProperties.getEndpoint() + "/" + bucketName + "/" + path;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("文件上传失败");
+        }
+
+
     }
 }
