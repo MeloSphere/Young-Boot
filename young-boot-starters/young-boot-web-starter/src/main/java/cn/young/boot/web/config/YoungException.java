@@ -19,7 +19,7 @@ public class YoungException {
      */
     @ExceptionHandler(value = RuntimeException.class)
     public ResponseData<String> bizExceptionHandler(RuntimeException e) {
-        log.error("bizExceptionHandler:{}", e.getMessage());
+        log.error("bizExceptionHandler:{}", e.getMessage(), e);
         return ResponseData.fail(e.getMessage());
     }
 }

@@ -24,6 +24,7 @@
         <module>young-boot-redis-starter</module>
         <module>young-boot-s3-sarter</module>
         <module>young-boot-pay-starter</module>
+        <module>young-boot-apimonitor-starter</module>
     </modules>
 
     <properties>

@@ -12,6 +12,9 @@ public class RequestContent implements Serializable {
 
     private Long userId;
 
+
+    private String username;
+
     public Long getUserId() {
         return userId;
     }
@@ -20,10 +23,22 @@ public class RequestContent implements Serializable {
         this.userId = userId;
     }
 
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public RequestContent() {
     }
 
-    public RequestContent(Long userId) {
+    public RequestContent(Long userId, String username) {
         this.userId = userId;
+        this.username = username;
     }
+
+
 }

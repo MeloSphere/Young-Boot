@@ -15,6 +15,6 @@ public class RequestContentHolder {
      */
     public static RequestContent getContext() {
         //TODO临时处理
-        return new RequestContent(1L);
+        return new RequestContent(1L,"meloSphere");
     }
 }
