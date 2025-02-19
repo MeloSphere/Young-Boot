@@ -5,6 +5,7 @@ import cn.dev33.satoken.context.model.SaStorage;
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaLoginModel;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.young.boot.satoken.constant.UserTypeConstant;
 import cn.young.boot.satoken.model.LoginUser;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
@@ -36,7 +37,12 @@ public class LoginHelper {
      * @param loginUser 登录用户信息
      */
     public static void login(LoginUser loginUser) {
-        loginByDevice(loginUser);
+        if (loginUser.getIsAdmin()) {
+            loginAdmin(loginUser);
+        } else {
+            loginCommon(loginUser);
+        }
+
     }
 
     /**
@@ -45,12 +51,22 @@ public class LoginHelper {
      *
      * @param loginUser 登录用户信息
      */
-    public static void loginByDevice(LoginUser loginUser) {
+    public static void loginAdmin(LoginUser loginUser) {
         SaStorage storage = SaHolder.getStorage();
         storage.set(LOGIN_USER_KEY, loginUser);
         storage.set(USER_KEY, loginUser.getUserId());
         SaLoginModel model = new SaLoginModel();
-        String loginId = loginUser.getUserId() + "_" + UUID.randomUUID().toString().replace("-", "");
+        String loginId = UserTypeConstant.ADMIN + ":" + loginUser.getUserId() + ":" + UUID.randomUUID().toString().replace("-", "");
+        StpUtil.login(loginId, model.setExtra(USER_KEY, loginUser.getUserId()));
+        StpUtil.getTokenSession().set(LOGIN_USER_KEY, loginUser);
+    }
+
+    public static void loginCommon(LoginUser loginUser) {
+        SaStorage storage = SaHolder.getStorage();
+        storage.set(LOGIN_USER_KEY, loginUser);
+        storage.set(USER_KEY, loginUser.getUserId());
+        SaLoginModel model = new SaLoginModel();
+        String loginId = UserTypeConstant.COMMON + ":" + loginUser.getUserId() + ":" + UUID.randomUUID().toString().replace("-", "");
         StpUtil.login(loginId, model.setExtra(USER_KEY, loginUser.getUserId()));
         StpUtil.getTokenSession().set(LOGIN_USER_KEY, loginUser);
     }

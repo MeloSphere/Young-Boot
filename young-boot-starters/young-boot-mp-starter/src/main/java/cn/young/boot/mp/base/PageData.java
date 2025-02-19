@@ -32,4 +32,13 @@ public class PageData<T> extends PageBase {
             return pageData;
         }
     }
+
+    public static <T> PageData<T> toYoungPageData(List<T> dataList, Long current, Long pageSize, Long total) {
+        PageData<T> pageData = new PageData<>();
+        pageData.setCurrentPage(current);
+        pageData.setPageSize(pageSize);
+        pageData.setTotal(total);
+        pageData.setRecords(dataList);
+        return pageData;
+    }
 }

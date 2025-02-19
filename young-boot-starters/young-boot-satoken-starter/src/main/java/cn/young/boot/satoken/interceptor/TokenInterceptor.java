@@ -27,9 +27,7 @@ public class TokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String tokenValue = request.getHeader(StpUtil.getTokenName());
         if (StringUtils.hasText(tokenValue)) {
-            log.info("token value:{}", tokenValue);
             LoginUser loginUser = LoginHelper.getLoginUser(tokenValue);
-            log.info("login user:{}", loginUser);
             if (null != loginUser) {
                 SaStorage storage = SaHolder.getStorage();
                 storage.set(LOGIN_USER_KEY, loginUser);

@@ -16,4 +16,6 @@ public class LoginUser implements Serializable {
     private String nickName;
 
     private String avaterUrl;
+
+    private Boolean isAdmin;
 }
